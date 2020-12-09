@@ -14,7 +14,7 @@ public class GamePanel extends JPanel implements ActionListener{
 	int moveSpeed = -1;
 	
 	public GamePanel() {
-		ImageIcon i = new ImageIcon("bin/pics/woods.jpg");
+		ImageIcon i = new ImageIcon("bin/sprites/Ruined City Background Preview.png");
 		background = i.getImage();
 	}
 	
