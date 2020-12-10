@@ -107,6 +107,8 @@ public class Game extends Canvas {
          *          Each entity will be added to the array of entities in the game.
     	 */
     	private void initEntities() {
+		background = new BackgroundEntity(this, "sprites/city.png",0,0);
+    		entities.add(background);
               // create the ship and put in center of screen
               ship = new ShipEntity(this, "sprites/blueShip.png", 0, 500);
               entities.add(ship);
@@ -292,7 +294,7 @@ public class Game extends Canvas {
 
             // get graphics context for the accelerated surface and make it black
             Graphics2D g = (Graphics2D) strategy.getDrawGraphics();
-            g.setColor(new Color(0,0,0));
+            //g.setColor(new Color(0,0,0));
             g.fillRect(0,0,1600,1200);
 
             // move each entity
@@ -375,7 +377,21 @@ public class Game extends Canvas {
             if (firePressed) {
               tryToFire();
             } // if
-           
+            if((background.getX() + background.getWidth()) < width) {
+            	
+            	backgroundRepeat = new BackgroundEntity(this, "sprites/city.png",background.getX() + background.getWidth(), 0);
+            	entities.add(1,backgroundRepeat);
+            	//System.out.println("background's X-coordinate is " + background.getX() );
+            	//System.out.println("backgroundRepeat's X-coordinate is " + backgroundRepeat.getX() );
+            }
+            
+            if(backgroundRepeat != null && (backgroundRepeat.getX() + backgroundRepeat.getWidth()) < width) {
+            	//System.out.println("background is at " + background.getX() + " and is moving at a speed of " + background.getHorizontalMovement());
+            	
+            	background.setX(0);
+            	entities.remove(backgroundRepeat);
+            	backgroundRepeat = null;
+            }
             // pause
             try { Thread.sleep(100); } catch (Exception e) {}
 
