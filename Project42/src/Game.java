@@ -214,7 +214,7 @@ public class Game extends Canvas {
 
           // otherwise add a shot
           lastFire = System.currentTimeMillis();
-          ShotEntity shot = new ShotEntity(this, "sprites/shot.gif", 
+          ShotEntity shot = new ShotEntity(this, "sprites/redShot.gif", 
                             ship.getX(), ship.getY());
           entities.add(shot);
         } // tryToFire
