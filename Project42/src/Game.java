@@ -20,6 +20,9 @@ public class Game extends Canvas {
         private boolean firePressed = false; // true if firing
         private boolean upPressed = false;  // true if left arrow key currently pressed
         private boolean downPressed = false; 
+	
+	 private int width = 1000;
+        private int height = 1000;
 
 
         private boolean gameRunning = true;
@@ -28,6 +31,8 @@ public class Game extends Canvas {
         private ArrayList removeEntities = new ArrayList(); // list of entities
                                                             // to remove this loop
         private Entity ship;  // the ship
+	 private Entity background;
+        private Entity backgroundRepeat;
         private double moveSpeed = 300; // hor. vel. of ship (px/s)
         private long lastFire = 0; // time last shot fired
         private long alienFire = 0;
